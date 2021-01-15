@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const galleryItems = require('../modules/gallery.data');
+const pool = require('../modules/pool')
+const { default: axios } = require('axios')
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
@@ -18,7 +20,16 @@ router.put('/like/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-    res.send(galleryItems);
+    const queryText = `SELECT * FROM image_gallery ORDER BY likes`
+
+    pool
+    .query(queryText)
+    .then((result) => res.send(result.rows))
+    .catch((err) => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+
 }); // END GET Route
 
 module.exports = router;
