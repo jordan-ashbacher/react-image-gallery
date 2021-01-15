@@ -20,8 +20,10 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of the Music of My Life</h1>
         </header>
-        <p>Gallery goes here</p>
-        <GalleryList gallery={gallery} />
+        <main>
+          <GalleryList gallery={gallery} />
+        </main>
+        
       </div>
     );
 }
