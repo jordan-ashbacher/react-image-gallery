@@ -1,7 +1,7 @@
 import './GalleryList.css'
 import GalleryItem from '../GalleryItem/GalleryItem'
 
-function GalleryList({ gallery }) {
+function GalleryList({ gallery, addLike }) {
     console.log(gallery)
 
     return (
@@ -10,6 +10,7 @@ function GalleryList({ gallery }) {
                 <GalleryItem 
                     key={item.id}
                     item={item}
+                    addLike={addLike}
                 />
             ))}
         </div>

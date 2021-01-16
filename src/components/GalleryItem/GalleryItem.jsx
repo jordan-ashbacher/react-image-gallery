@@ -1,6 +1,6 @@
 import './GalleryItem.css'
 
-const GalleryItem = ({ item }) => {
+const GalleryItem = ({ item, addLike }) => {
     console.log(item)
 
     const checkLikes = () => {
@@ -13,11 +13,15 @@ const GalleryItem = ({ item }) => {
         }
     }
 
+    const handleClick = () => {
+        addLike(item)
+    }
+
     return (
         <div className="galleryItem">
             <img src={item.path} alt={item.description} />
             <div className="buttonContainer">
-                <button>SPIN</button>
+                <button onClick={handleClick}>SPIN</button>
                 {checkLikes()}
             </div>
             

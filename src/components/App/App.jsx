@@ -15,13 +15,22 @@ function App() {
       .catch((err) => console.log(err))
     }
 
+    const addLike = (item) => {
+      console.log('clicked ID:', item.id)
+      axios
+      .put(`/gallery/like/${item.id}`)
+      .then((response) => getGallery())
+      .catch((err) => console.log(err))
+
+    }
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of the Music of My Life</h1>
         </header>
         <main>
-          <GalleryList gallery={gallery} />
+          <GalleryList gallery={gallery} addLike={addLike} />
         </main>
         
       </div>
