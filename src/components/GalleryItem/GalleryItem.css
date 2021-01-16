@@ -1,0 +1,28 @@
+.galleryItem {
+    height: 100%;
+    width: 300px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+img {
+    height: 300px;
+    width: 300px;
+}
+
+.descriptionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* p {
+    cursor: pointer
+} */

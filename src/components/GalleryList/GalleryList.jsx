@@ -1,17 +1,18 @@
 import './GalleryList.css'
+import GalleryItem from '../GalleryItem/GalleryItem'
 
-function GalleryList({ gallery }) {
+function GalleryList({ gallery, addLike }) {
     console.log(gallery)
 
     return (
         <div className="galleryList">
-            GalleryItem goes here
-            {/* {gallery.map((item) => {
+            {gallery.map((item) => (
                 <GalleryItem 
                     key={item.id}
                     item={item}
+                    addLike={addLike}
                 />
-            })} */}
+            ))}
         </div>
     )
 }
