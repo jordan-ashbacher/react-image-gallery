@@ -33,4 +33,13 @@ router.get('/', (req, res) => {
 
 }); // END GET Route
 
+router.post('/', (req, res) => {
+    const queryText = `INSERT INTO image_gallery (path, description) VALUES ($1, $2)`
+
+    pool
+    .query(queryText, [req.body.path, req.body.description])
+    .then((result) => res.sendStatus(201))
+    .catch((err) => res.sendStatus(500))
+})
+
 module.exports = router;
