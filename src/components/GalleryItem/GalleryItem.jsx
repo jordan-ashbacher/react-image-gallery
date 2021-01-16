@@ -1,7 +1,7 @@
 import './GalleryItem.css'
 import { useState } from 'react'
 
-const GalleryItem = ({ item, addLike }) => {
+const GalleryItem = ({ item, addLike, removeItem }) => {
     console.log(item)
 
     const [isDescriptionVisible, setIsDescriptionVisible] = useState(false)
@@ -20,24 +20,30 @@ const GalleryItem = ({ item, addLike }) => {
         setIsDescriptionVisible(!isDescriptionVisible)
     }
 
-    const handleClick = () => {
+    const handleSpin = () => {
         addLike(item)
     }
 
+    const handleRemove = () => {
+        removeItem(item)
+    }
+
     return (
-        <div className="galleryItem" onClick={toggleDescription} >
+        <div className="galleryItem">
             {isDescriptionVisible ? 
                 <>
-                <div className="descriptionContainer">
+                <div className="descriptionContainer" onClick={toggleDescription}>
                     <p>{item.description}</p>
                 </div>
-                <button onClick={handleClick}>SPIN</button>
+                <button onClick={handleSpin}>SPIN</button>
+                <button onClick={handleRemove}>REMOVE</button>
                 {checkLikes()}
                 </>
                 :
                 <>
-                <img src={item.path} alt={item.description} />
-                <button onClick={handleClick}>SPIN</button>
+                <img src={item.path} alt={item.description} onClick={toggleDescription} />
+                <button onClick={handleSpin}>SPIN</button>
+                <button onClick={handleRemove}>REMOVE</button>
                 {checkLikes()}
                 </>
             }   
