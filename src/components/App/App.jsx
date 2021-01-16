@@ -48,6 +48,15 @@ function App() {
       }).catch((err) => console.log(err))
     }
 
+    const removeItem = (item) => {
+      console.log('itemID to remove:', item.id)
+
+      axios
+      .delete(`/gallery/delete/${item.id}`)
+      .then((response) => getGallery())
+      .catch((err) => console.log(err))
+    }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -61,7 +70,11 @@ function App() {
             newItemDescription={newItemDescription}
             setNewItemDescription={setNewItemDescription}
           />
-          <GalleryList gallery={gallery} addLike={addLike} />
+          <GalleryList 
+            gallery={gallery} 
+            addLike={addLike}
+            removeItem={removeItem}
+            />
         </main>
         
       </div>

@@ -42,4 +42,13 @@ router.post('/', (req, res) => {
     .catch((err) => res.sendStatus(500))
 })
 
+router.delete('/delete/:id', (req, res) => {
+    const queryText = `DELETE FROM image_gallery WHERE id = $1`
+
+    pool
+    .query(queryText, [req.params.id])
+    .then((result) => res.sendStatus(200))
+    .catch((err) => res.sendStatus(500))
+})
+
 module.exports = router;
