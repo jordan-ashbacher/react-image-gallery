@@ -1,0 +1,29 @@
+.formResetContainer {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    min-width: 600px;
+  }
+  
+  .formContainer {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15%;
+    column-gap: 5px;
+    align-items: center;
+    min-width: 500px;
+  }
+
+  Button.submitButton {
+      color: #eeeeee;
+  }
+
+  Button.submitButtonOutlined {
+      border: 1px solid #eeeeee
+  }
+
+  MuiInputBase.itemInput {
+      color: #eeeeee;
+  }
+
+  input {
+      height: 30px;
+  }

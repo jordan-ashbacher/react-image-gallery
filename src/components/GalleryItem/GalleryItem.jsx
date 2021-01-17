@@ -1,5 +1,16 @@
 import './GalleryItem.css'
 import { useState } from 'react'
+import Button from '@material-ui/core/Button'
+import { makeStyles } from '@material-ui/core/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
+import AlbumIcon from '@material-ui/icons/Album'
+
+const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
+
 
 const GalleryItem = ({ item, addLike, removeItem }) => {
     console.log(item)
@@ -28,6 +39,8 @@ const GalleryItem = ({ item, addLike, removeItem }) => {
         removeItem(item)
     }
 
+    const classes = useStyles();
+
     return (
         <div className="galleryItem">
             {isDescriptionVisible ? 
@@ -35,15 +48,38 @@ const GalleryItem = ({ item, addLike, removeItem }) => {
                 <div className="descriptionContainer" onClick={toggleDescription}>
                     <p>{item.description}</p>
                 </div>
-                <button onClick={handleSpin}>SPIN</button>
-                <button onClick={handleRemove}>REMOVE</button>
+                <Button onClick={handleSpin}>SPIN</Button>
+                <Button 
+                    onClick={handleRemove}
+                    variant="outlined"
+                    color="secondary"
+                    className={classes.button}
+                    startIcon={<DeleteIcon />}
+                    >
+                        REMOVE
+                    </Button>
                 {checkLikes()}
                 </>
                 :
                 <>
                 <img src={item.path} alt={item.description} onClick={toggleDescription} />
-                <button onClick={handleSpin}>SPIN</button>
-                <button onClick={handleRemove}>REMOVE</button>
+                <Button 
+                    onClick={handleSpin}
+                    variant="outlined"
+                    classes={{ root: 'spinButton', outlined:'spinButtonOutlined'}}
+                    startIcon={<AlbumIcon />}
+                    >
+                        SPIN
+                    </Button>
+                <Button 
+                    onClick={handleRemove}
+                    variant="outlined"
+                    color="secondary"
+                    className={classes.button}
+                    startIcon={<DeleteIcon />}
+                    >
+                        REMOVE
+                    </Button>
                 {checkLikes()}
                 </>
             }   
