@@ -19,8 +19,16 @@ img {
     width: 300px;
 }
 
-button {
+Button {
     cursor: pointer;
+}
+
+Button.spinButton {
+    color: #eeeeee ;
+}
+
+Button.spinButtonOutlined {
+    border: 1px solid #eeeeee ;
 }
 
 /* p {
