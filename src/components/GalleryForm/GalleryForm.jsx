@@ -46,6 +46,7 @@ const GalleryForm = ({
                 <Button 
                     variant="outlined"
                     classes={{ root: 'submitButton', outlined:'submitButtonOutlined'}}
+                    onClick={handleSubmit}
                     >
                         Add Album
                     </Button>
