@@ -27,9 +27,6 @@ const GalleryForm = ({
                 <div className="itemURL">
                     <input
                         type="text"
-                        InputProps={{
-                            className: classes.itemInput
-                        }}
                         placeholder="image url"
                         value={newItemPath}
                         onChange={(e) => setNewItemPath(e.target.value)}
